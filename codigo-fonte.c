@@ -98,3 +98,116 @@ void checarVitoria(){
     if(jogoDaVelha[0][0] == 'X' && jogoDaVelha[0][1] == 'X' && jogoDaVelha[0][2] == 'X' ||
        jogoDaVelha[1][0] == 'X' && jogoDaVelha[1][1] == 'X' && jogoDaVelha[1][2] == 'X' ||
        jogoDaVelha[2][0] == 'X' && jogoDaVelha[2][1] == 'X' && jogoDaVelha[2][2] == 'X'){
+       	printf("\n\tPlayer %s venceu!\n", jogador1);
+        vitoria++;
+       }
+    if(jogoDaVelha[0][0] == 'O' && jogoDaVelha[0][1] == 'O' && jogoDaVelha[0][2] == 'O' ||
+       jogoDaVelha[1][0] == 'O' && jogoDaVelha[1][1] == 'O' && jogoDaVelha[1][2] == 'O' ||
+       jogoDaVelha[2][0] == 'O' && jogoDaVelha[2][1] == 'O' && jogoDaVelha[2][2] == 'O'){
+        printf("\n\tPlayer %s venceu!\n", jogador2);
+        vitoria++;
+       }
+
+
+    if(jogoDaVelha[0][0] == 'X' && jogoDaVelha[1][0] == 'X' && jogoDaVelha[2][0] == 'X' ||
+       jogoDaVelha[0][1] == 'X' && jogoDaVelha[1][1] == 'X' && jogoDaVelha[2][1] == 'X' ||
+       jogoDaVelha[0][2] == 'X' && jogoDaVelha[1][2] == 'X' && jogoDaVelha[2][2] == 'X'){
+        printf("\n\tPlayer %s venceu!\n", jogador1);
+        vitoria++;
+       }
+    if(jogoDaVelha[0][0] == 'O' && jogoDaVelha[1][0] == 'O' && jogoDaVelha[2][0] == 'O' ||
+       jogoDaVelha[0][1] == 'O' && jogoDaVelha[1][1] == 'O' && jogoDaVelha[2][1] == 'O' ||
+       jogoDaVelha[0][2] == 'O' && jogoDaVelha[1][2] == 'O' && jogoDaVelha[2][2] == 'O'){
+        printf("\n\tPlayer %s venceu!\n", jogador2);
+        vitoria++;
+       }
+
+
+    if(jogoDaVelha[0][0] == 'X' && jogoDaVelha[1][1] == 'X' && jogoDaVelha[2][2] == 'X'){
+        printf("\n\tPlayer %s venceu!\n", jogador1);
+        vitoria++;
+       }
+
+    if(jogoDaVelha[0][0] == 'O' && jogoDaVelha[1][1] == 'O' && jogoDaVelha[2][2] == 'O'){
+        printf("\n\tPlayer %s venceu!\n", jogador2);
+        vitoria++;
+       }
+
+
+    if(jogoDaVelha[0][2] == 'X' && jogoDaVelha[1][1] == 'X' && jogoDaVelha[2][0] == 'X'){
+        printf("\n\tPlayer %s venceu!\n", jogador1);
+        vitoria++;
+       }
+    if(jogoDaVelha[0][2] == 'O' && jogoDaVelha[1][1] == 'O' && jogoDaVelha[2][0] == 'O'){
+        printf("\n\tPlayer %s venceu!\n", jogador2);
+        vitoria++;
+       }
+
+    else if( (jogoDaVelha[0][0] == 'X' || jogoDaVelha[0][0] == 'O') && (jogoDaVelha[0][1] == 'X' || jogoDaVelha[0][1] == 'O') && (jogoDaVelha[0][2] == 'X' || jogoDaVelha[0][2] == 'O') &&
+       (jogoDaVelha[1][0] == 'X' || jogoDaVelha[1][0] == 'O') && (jogoDaVelha[1][1] == 'X' || jogoDaVelha[1][1] == 'O') && (jogoDaVelha[1][2] == 'X' || jogoDaVelha[1][2] == 'O') &&
+       (jogoDaVelha[2][0] == 'X' || jogoDaVelha[2][0] == 'O') && (jogoDaVelha[2][1] == 'X' || jogoDaVelha[2][1] == 'O') && (jogoDaVelha[2][2] == 'X' || jogoDaVelha[2][2] == 'O') && vitoria == 0){
+        printf("\n\tJogo entre %s e %s Empatado!\n", jogador1, jogador2);
+        vitoria++;
+       }
+};
+
+int posicionar(int x, int y){
+    COORD coord;
+    coord.X = x;
+    coord.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+};
+
+void creditos(){
+    printf("\tGame Desenvolvido por:\n");
+    printf("\n\t====> Luan Martins\n");
+    printf("\t====> Igor Marques\n");
+    printf("\t====> Antônio Augusto\n");
+    printf("\t====> Eduardo Fernandes\n");
+};
+
+void voltarMenu(){
+    printf("\n");
+    printf("\t");
+    system("pause");
+    system("cls");
+};
+
+int main(){
+    setlocale(LC_ALL, "Portuguese");
+    system("color 70");
+
+    apresentar();
+    tab();
+
+    switch(op){
+        case '1':
+            receberUsuarios();
+            do{
+                printarTab();
+                jogar();
+                checarVitoria();
+            }while(vitoria == 0);
+            vitoria = 0;
+            player = 0;
+            voltarMenu();
+            main();
+            break;
+        case '2':
+            posicionar(0, 18);
+            creditos();
+            voltarMenu();
+            main();
+            break;
+        case '3':
+            posicionar(0, 20);
+            printf("\tSaindo do Game! :(\n");
+            break;
+        default :
+            posicionar(0, 20);
+            printf("\tOpção Inválida!\n\n");
+            voltarMenu();
+            main();
+            break;
+    }
+}
