@@ -1,0 +1,17 @@
+Regras e Procedimentos do Jogo da Velha
+
+1) Deverá ser jogado em modo multiplayer, 1 vs 1
+
+2) Deverá ser escolhida a opção "Jogar" endereçado pelo caracter "1" no menu de jogo
+
+3) O player 1 deve digitar seu nome, seguido do nome do player 2
+
+4) O player 1 será representado pelo X e o 2 pelo Y
+
+5) O jogo então começa mostrando o tabuleiro
+
+6) O sistema pede para o player 1 (X) para digitar numericamente a linha e coluna da sua jogada (de 0 a 3)
+
+7) Acontece a mesma coisa para o player 2 (O) e assim o jogo se desenrola até que haja um vencedor ou empate
+
+8) Ao final, o usuário pode pressionar qualquer tecla e retornar para o menu onde há a opção de jogar novamente
